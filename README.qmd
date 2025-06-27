@@ -1,0 +1,86 @@
+---
+title: ""
+format: gfm
+---
+
+## did-stepwise: python implementation of the stepwise DID estimator
+
+The `did_sw` package is a Python implementation of the stepwise DID estimator
+of  [Harmon](https://web.econ.ku.dk/nharmon/docs/harmon2022difference.pdf).
+
+See:
+
+- [Installation](#installation)
+- [Example](#example)
+- [Some theory](#some-theory)
+- Docs (to be added)
+
+## Installation
+
+```python
+uv pip install git+https://github.com/jsr-p/did-stepwise
+```
+
+## Example
+
+```{python} 
+#| echo: false
+from IPython.display import Markdown
+Markdown(open("_output/example_docs.md").read())
+```
+
+---
+
+```{python} 
+#| echo: false
+from IPython.display import Markdown
+Markdown(open("docs/harmon.md").read())
+```
+
+---
+
+### Examples from paper
+
+- [Numerical results](scripts/harmon_simexperiment.py)
+  - [Output](output/harmon_simexperiment.txt)
+- [Illustrative example of SWDD efficiency gains over SGDD](scripts/harmon_ex.py)
+  - [Output](output/harmon_ex.txt)
+
+### Imputation estimator
+
+It turns out that the SWDD estimator of Harmon can be written as an imputation
+estimator ala.
+[BJS](https://academic.oup.com/restud/article/91/6/3253/7601390);
+concretely, we estimate the $\hat{\gamma}^{SWDD}_{i, h}$'s using the BJS
+imputation estimator on a transformed dataset.
+Hence, this package depends on the `did_imp`
+[package](https://github.com/jsr-p/did-imputation).
+See the [paper](https://web.econ.ku.dk/nharmon/docs/harmon2022difference.pdf)
+for more details.
+
+
+## Development
+
+```bash
+git clone git@github.com:jsr-p/did-stepwise.git
+cd tabx
+uv venv
+uv sync --all-extras
+```
+
+### Testing
+
+- 🚧🔨⏳Work in progress! 🚧🔨⏳
+- Don't open the `tests` folder yet; 🍝 inside
+
+### Docs
+
+- 🚧🔨⏳Work in progress! 🚧🔨⏳
+
+## References
+
+- [Harmon paper](https://web.econ.ku.dk/nharmon/docs/harmon2022difference.pdf)
+
+Code inspiration taken from:
+
+- <https://github.com/nikoharm/did_stepwise> 
